@@ -19,12 +19,14 @@ class MainActivity : AppCompatActivity() {
 //            버튼이 눌리면 => 권한이 있는지 확인 => OK일때 바로 전화 연결
 //            권한이 없으면 => 연결불가 안내 토스트
             val permissionListener = object : PermissionListener {
+
                 override fun onPermissionGranted() {
 //                    권한이 허락되어 있는경우 실행
                     val phonenum = phonenumTxt.text.toString()
                     val myUri = Uri.parse("tel:${phonenum}")
                     val myIntent = Intent(Intent.ACTION_CALL, myUri)
                     startActivity(myIntent)
+
                 }
 
                 override fun onPermissionDenied(deniedPermissions: MutableList<String>?) {
