@@ -6,6 +6,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.bumptech.glide.Glide
 import com.gun0912.tedpermission.PermissionListener
 import com.gun0912.tedpermission.TedPermission
 import kotlinx.android.synthetic.main.activity_main.*
@@ -14,6 +15,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+//        활동 내역 이미지 -> 인터넷에 있는 이미지를 Glide를 통해서 불러내자.
+        Glide.with(this).load("https://img.insight.co.kr/static/2019/09/22/700/ar4v04135y3ut73z3jk1.jpg").into(actionImg)
 
         callBtn.setOnClickListener {
 //            버튼이 눌리면 => 권한이 있는지 확인 => OK일때 바로 전화 연결
